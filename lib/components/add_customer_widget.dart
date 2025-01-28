@@ -760,15 +760,33 @@ class _AddCustomerWidgetState extends State<AddCustomerWidget>
                                   ],
                                 ),
                               ),
-                              ClipRRect(
-                                borderRadius: BorderRadius.circular(8.0),
-                                child: Image.memory(
-                                  _model.uploadedLocalFile.bytes ??
-                                      Uint8List.fromList([]),
-                                  width: 200.0,
-                                  height: 200.0,
-                                  fit: BoxFit.cover,
-                                ),
+                              Builder(
+                                builder: (context) {
+                                  if ((_model.uploadedLocalFile.bytes
+                                              ?.isNotEmpty ??
+                                          false)) {
+                                    return ClipRRect(
+                                      borderRadius: BorderRadius.circular(8.0),
+                                      child: Image.memory(
+                                        _model.uploadedLocalFile.bytes ??
+                                            Uint8List.fromList([]),
+                                        width: 200.0,
+                                        height: 200.0,
+                                        fit: BoxFit.cover,
+                                      ),
+                                    );
+                                  } else {
+                                    return ClipRRect(
+                                      borderRadius: BorderRadius.circular(8.0),
+                                      child: Image.network(
+                                        'https://cdn.pixabay.com/photo/2016/01/03/00/43/upload-1118929_1280.png',
+                                        width: 200.0,
+                                        height: 200.0,
+                                        fit: BoxFit.cover,
+                                      ),
+                                    );
+                                  }
+                                },
                               ),
                             ],
                           ),
