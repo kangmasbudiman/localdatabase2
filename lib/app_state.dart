@@ -25,4 +25,11 @@ class FFAppState extends ChangeNotifier {
   set connected(bool value) {
     _connected = value;
   }
+
+  String _image =
+      'https://eagle-sensors.com/wp-content/uploads/unavailable-image.jpg';
+  String get image => _image;
+  set image(String value) {
+    _image = value;
+  }
 }

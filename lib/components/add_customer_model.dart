@@ -18,6 +18,9 @@ class AddCustomerModel extends FlutterFlowModel<AddCustomerWidget> {
   FocusNode? addressFocusNode;
   TextEditingController? addressTextController;
   String? Function(BuildContext, String?)? addressTextControllerValidator;
+  bool isDataUploading = false;
+  FFUploadedFile uploadedLocalFile =
+      FFUploadedFile(bytes: Uint8List.fromList([]));
 
   @override
   void initState(BuildContext context) {}
