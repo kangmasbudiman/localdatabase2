@@ -9,6 +9,7 @@ import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:provider/provider.dart';
 import 'add_customer_model.dart';
 export 'add_customer_model.dart';
 
@@ -116,6 +117,8 @@ class _AddCustomerWidgetState extends State<AddCustomerWidget>
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return BackdropFilter(
       filter: ImageFilter.blur(
         sigmaX: 5.0,
@@ -469,7 +472,7 @@ class _AddCustomerWidgetState extends State<AddCustomerWidget>
                                 ),
                               ),
                               Text(
-                                'Hello World',
+                                FFAppState().base64,
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -555,24 +558,8 @@ class _AddCustomerWidgetState extends State<AddCustomerWidget>
                                       await actions.fotolocal(
                                         _model.uploadedLocalFile,
                                       );
-                                      ScaffoldMessenger.of(context)
-                                          .showSnackBar(
-                                        SnackBar(
-                                          content: Text(
-                                            'Convert Success',
-                                            style: TextStyle(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryText,
-                                            ),
-                                          ),
-                                          duration:
-                                              const Duration(milliseconds: 4000),
-                                          backgroundColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .secondary,
-                                        ),
-                                      );
+
+                                      safeSetState(() {});
                                     },
                                     text: 'PickImage',
                                     options: FFButtonOptions(
