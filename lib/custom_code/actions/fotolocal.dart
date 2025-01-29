@@ -20,7 +20,8 @@ Future fotolocal(FFUploadedFile uploadedImage) async {
 
     // Konversi image ke base64
     String base64Image = base64Encode(uploadedImage.bytes!);
-
+    // Update PageState
+    FFAppState().base64 = base64Image; // Simpan ke dalam PageState
     // Debugging: Cetak hasil Base64 di console
     print("Base64 Result: ${base64Image.substring(0, 100)}...");
 
