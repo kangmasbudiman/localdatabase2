@@ -472,15 +472,6 @@ class _AddCustomerWidgetState extends State<AddCustomerWidget>
                                         .asValidator(context),
                                   ),
                                 ),
-                                Text(
-                                  FFAppState().base64,
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Inter',
-                                        letterSpacing: 0.0,
-                                      ),
-                                ),
                                 Builder(
                                   builder: (context) {
                                     if ((_model.uploadedLocalFile.bytes
@@ -567,32 +558,6 @@ class _AddCustomerWidgetState extends State<AddCustomerWidget>
                                         safeSetState(() {});
                                       },
                                       text: 'PickImage',
-                                      options: FFButtonOptions(
-                                        height: 40.0,
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            16.0, 0.0, 16.0, 0.0),
-                                        iconPadding:
-                                            const EdgeInsetsDirectional.fromSTEB(
-                                                0.0, 0.0, 0.0, 0.0),
-                                        color: FlutterFlowTheme.of(context)
-                                            .primary,
-                                        textStyle: FlutterFlowTheme.of(context)
-                                            .titleSmall
-                                            .override(
-                                              fontFamily: 'Inter Tight',
-                                              color: Colors.white,
-                                              letterSpacing: 0.0,
-                                            ),
-                                        elevation: 0.0,
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                      ),
-                                    ),
-                                    FFButtonWidget(
-                                      onPressed: () {
-                                        print('Button pressed ...');
-                                      },
-                                      text: 'Button',
                                       options: FFButtonOptions(
                                         height: 40.0,
                                         padding: const EdgeInsetsDirectional.fromSTEB(
