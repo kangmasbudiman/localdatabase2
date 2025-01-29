@@ -13,12 +13,14 @@ class CustomerListWidget extends StatefulWidget {
     int? id,
     required this.address,
     required this.city,
+    this.img,
   }) : id = id ?? 0;
 
   final String? name;
   final int id;
   final String? address;
   final String? city;
+  final String? img;
 
   @override
   State<CustomerListWidget> createState() => _CustomerListWidgetState();
@@ -172,6 +174,16 @@ class _CustomerListWidgetState extends State<CustomerListWidget>
                             ),
                           ],
                         ),
+                      ),
+                      Text(
+                        valueOrDefault<String>(
+                          widget.img,
+                          '-',
+                        ),
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily: 'Inter',
+                              letterSpacing: 0.0,
+                            ),
                       ),
                     ],
                   ),

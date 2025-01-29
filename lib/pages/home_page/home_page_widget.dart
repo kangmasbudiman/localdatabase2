@@ -184,6 +184,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                             id: columnReadCustomerRow.id,
                             address: columnReadCustomerRow.address,
                             city: columnReadCustomerRow.city,
+                            img: columnReadCustomerRow.img,
                           ),
                         ),
                       ),
