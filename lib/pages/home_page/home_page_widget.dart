@@ -134,62 +134,64 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                 }
                 final columnReadCustomerRowList = snapshot.data!;
 
-                return Column(
-                  mainAxisSize: MainAxisSize.max,
-                  children: List.generate(columnReadCustomerRowList.length,
-                      (columnIndex) {
-                    final columnReadCustomerRow =
-                        columnReadCustomerRowList[columnIndex];
-                    return Builder(
-                      builder: (context) => Padding(
-                        padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 5.0),
-                        child: InkWell(
-                          splashColor: Colors.transparent,
-                          focusColor: Colors.transparent,
-                          hoverColor: Colors.transparent,
-                          highlightColor: Colors.transparent,
-                          onTap: () async {
-                            await showDialog(
-                              context: context,
-                              builder: (dialogContext) {
-                                return Dialog(
-                                  elevation: 0,
-                                  insetPadding: EdgeInsets.zero,
-                                  backgroundColor: Colors.transparent,
-                                  alignment: const AlignmentDirectional(0.0, 0.0)
-                                      .resolve(Directionality.of(context)),
-                                  child: GestureDetector(
-                                    onTap: () {
-                                      FocusScope.of(dialogContext).unfocus();
-                                      FocusManager.instance.primaryFocus
-                                          ?.unfocus();
-                                    },
-                                    child: AddCustomerWidget(
-                                      isEdit: true,
-                                      id: columnReadCustomerRow.id,
-                                      name: columnReadCustomerRow.name,
-                                      city: columnReadCustomerRow.city,
-                                      address: columnReadCustomerRow.address,
+                return SingleChildScrollView(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    children: List.generate(columnReadCustomerRowList.length,
+                        (columnIndex) {
+                      final columnReadCustomerRow =
+                          columnReadCustomerRowList[columnIndex];
+                      return Builder(
+                        builder: (context) => Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              0.0, 5.0, 0.0, 5.0),
+                          child: InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              await showDialog(
+                                context: context,
+                                builder: (dialogContext) {
+                                  return Dialog(
+                                    elevation: 0,
+                                    insetPadding: EdgeInsets.zero,
+                                    backgroundColor: Colors.transparent,
+                                    alignment: const AlignmentDirectional(0.0, 0.0)
+                                        .resolve(Directionality.of(context)),
+                                    child: GestureDetector(
+                                      onTap: () {
+                                        FocusScope.of(dialogContext).unfocus();
+                                        FocusManager.instance.primaryFocus
+                                            ?.unfocus();
+                                      },
+                                      child: AddCustomerWidget(
+                                        isEdit: true,
+                                        id: columnReadCustomerRow.id,
+                                        name: columnReadCustomerRow.name,
+                                        city: columnReadCustomerRow.city,
+                                        address: columnReadCustomerRow.address,
+                                      ),
                                     ),
-                                  ),
-                                );
-                              },
-                            );
-                          },
-                          child: CustomerListWidget(
-                            key: Key(
-                                'Keyxah_${columnIndex}_of_${columnReadCustomerRowList.length}'),
-                            name: columnReadCustomerRow.name,
-                            id: columnReadCustomerRow.id,
-                            address: columnReadCustomerRow.address,
-                            city: columnReadCustomerRow.city,
-                            img: columnReadCustomerRow.img,
+                                  );
+                                },
+                              );
+                            },
+                            child: CustomerListWidget(
+                              key: Key(
+                                  'Keyxah_${columnIndex}_of_${columnReadCustomerRowList.length}'),
+                              name: columnReadCustomerRow.name,
+                              id: columnReadCustomerRow.id,
+                              address: columnReadCustomerRow.address,
+                              city: columnReadCustomerRow.city,
+                              img: columnReadCustomerRow.img,
+                            ),
                           ),
                         ),
-                      ),
-                    );
-                  }),
+                      );
+                    }),
+                  ),
                 );
               },
             ),
