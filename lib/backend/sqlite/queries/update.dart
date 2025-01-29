@@ -9,7 +9,7 @@ Future performInsertCustomer(
   String? imagep,
 }) {
   final query = '''
-insert into customer(name, address, city) values ('$name','$address','$city','$imagep');
+insert into customer(name, address, city,img) values ('$name','$address','$city','$imagep');
 ''';
   return database.rawQuery(query);
 }
