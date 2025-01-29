@@ -12,16 +12,21 @@ import 'dart:convert';
 // Set your action name, define your arguments and return parameter,
 // and then add the boilerplate code using the green button on the right!
 Future fotolocal(FFUploadedFile uploadedImage) async {
-  // localimage to base64Image
+  try {
+    // Pastikan uploadedImage memiliki data
+    if (uploadedImage.bytes == null) {
+      throw Exception("Gambar tidak ditemukan.");
+    }
 
-  // Read the image file as bytes
+    // Konversi image ke base64
+    String base64Image = base64Encode(uploadedImage.bytes!);
 
-  List<int>? imageBytes = uploadedImage.bytes;
-  if (imageBytes == null) {
-    return null;
+    // Debugging: Cetak hasil Base64 di console
+    print("Base64 Result: ${base64Image.substring(0, 100)}...");
+
+    return base64Image;
+  } catch (e) {
+    print("Error: $e");
+    return "Error: $e";
   }
-  // Convert the image bytes to base64
-  String base64Image = base64Encode(imageBytes);
-
-  return base64Image;
 }
