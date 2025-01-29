@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 // Begin custom action code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
+import 'dart:convert';
+
 // Set your action name, define your arguments and return parameter,
 // and then add the boilerplate code using the green button on the right!
 Future fotolocal(FFUploadedFile uploadedImage) async {
