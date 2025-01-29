@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
 import 'dart:ui';
+import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'add_customer_model.dart';
@@ -550,6 +551,28 @@ class _AddCustomerWidgetState extends State<AddCustomerWidget>
                                           return;
                                         }
                                       }
+
+                                      await actions.fotolocal(
+                                        _model.uploadedLocalFile,
+                                      );
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(
+                                        SnackBar(
+                                          content: Text(
+                                            'Convert Success',
+                                            style: TextStyle(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
+                                            ),
+                                          ),
+                                          duration:
+                                              const Duration(milliseconds: 4000),
+                                          backgroundColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .secondary,
+                                        ),
+                                      );
                                     },
                                     text: 'PickImage',
                                     options: FFButtonOptions(
@@ -576,7 +599,7 @@ class _AddCustomerWidgetState extends State<AddCustomerWidget>
                                     onPressed: () {
                                       print('Button pressed ...');
                                     },
-                                    text: 'ConverBase64',
+                                    text: 'Button',
                                     options: FFButtonOptions(
                                       height: 40.0,
                                       padding: const EdgeInsetsDirectional.fromSTEB(
@@ -759,6 +782,7 @@ class _AddCustomerWidgetState extends State<AddCustomerWidget>
                                                     .addressTextController.text,
                                                 city: _model
                                                     .cityTextController.text,
+                                                image: '',
                                               );
                                               Navigator.pop(context);
                                               ScaffoldMessenger.of(context)

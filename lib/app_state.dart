@@ -32,4 +32,10 @@ class FFAppState extends ChangeNotifier {
   set image(String value) {
     _image = value;
   }
+
+  String _base64 = '';
+  String get base64 => _base64;
+  set base64(String value) {
+    _base64 = value;
+  }
 }
