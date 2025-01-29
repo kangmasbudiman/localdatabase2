@@ -41,14 +41,14 @@ class SQLiteManager {
     String? name,
     String? address,
     String? city,
-    String? image,
+    String? imagep,
   }) =>
       performInsertCustomer(
         _database,
         name: name,
         address: address,
         city: city,
-        image: image,
+        imagep: imagep,
       );
 
   Future updateCustomer({

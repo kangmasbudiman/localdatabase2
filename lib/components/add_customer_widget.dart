@@ -781,7 +781,7 @@ class _AddCustomerWidgetState extends State<AddCustomerWidget>
                                                       .text,
                                                   city: _model
                                                       .cityTextController.text,
-                                                  image: '',
+                                                  imagep: FFAppState().base64,
                                                 );
                                                 Navigator.pop(context);
                                                 ScaffoldMessenger.of(context)
