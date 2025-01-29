@@ -15,8 +15,11 @@ Future fotolocal(FFUploadedFile uploadedImage) async {
   // localimage to base64Image
 
   // Read the image file as bytes
-  List<int> imageBytes = await uploadedImage.file.readAsBytes();
 
+  List<int>? imageBytes = uploadedImage.bytes;
+  if (imageBytes == null) {
+    return null;
+  }
   // Convert the image bytes to base64
   String base64Image = base64Encode(imageBytes);
 
